@@ -32,6 +32,7 @@
             <p>Valor Recebido:</p>
             <input type="number" id="valor-receita" placeholder="ex: 0,00">
             <button id="btnAdicionarReceita">Adicionar receita</button>
+            <button id="btnDeletarReceita">Deletar Linha</button>
         </div>
         <table id="tabela-receitas">
             <h2>PLANILHA RECEBIDO</h2>
@@ -54,7 +55,7 @@
             </thead>            
             <tbody>
                 <tr id="total-receitas">
-                    <td>TOTAL</td>
+                    <td style="background-color: #b0e8b0;">TOTAL</td>
                     <td>R$ 0,00</td>
                     <td>R$ 0,00</td>
                     <td>R$ 0,00</td>
@@ -93,6 +94,7 @@
             <p>Valor a Pagar:</p>
             <input type="number" id="valor-despesa" placeholder="ex: 0,00">
             <button id="btnAdicionarDespesa">Adicionar Despesa</button>
+            <button id="btnDeletarDespesa">Deletar Linha</button>
         </div>
         <table id="tabela-despesas">
             <h2>PLANILHA DESPESAS</h2>
@@ -115,7 +117,7 @@
             </thead>            
             <tbody>
                 <tr id="total-despesas">
-                    <td>TOTAL</td>
+                    <td style="background-color: #eab5b5;">TOTAL</td>
                     <td>R$ 0,00</td>
                     <td>R$ 0,00</td>
                     <td>R$ 0,00</td>
@@ -136,7 +138,7 @@
             <h2>SALDO RESTANTE</h2>
             <thead>
                 <tr class="cabTable">
-                    <th style="background-color: blue;">TOTAL</th>
+                    <th style="background-color: blue;">RESULTADO</th>
                     <th>JANEIRO</th>
                     <th>FEVEREIRO</th>
                     <th>MARÇO</th>
@@ -153,7 +155,7 @@
             </thead>            
             <tbody>
                 <tr id="total-resultado">
-                    <td>TOTAL</td>
+                    <td>RESULTADO</td>
                     <td>R$ 0,00</td>
                     <td>R$ 0,00</td>
                     <td>R$ 0,00</td>
