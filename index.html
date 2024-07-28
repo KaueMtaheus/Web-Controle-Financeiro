@@ -3,23 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Controle de Finanças</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <h1>Controle de Finanças</h1>
-    <div class="addCamp">
-        <input type="text">receitas
-        <select name="month" id="sel-month"></select>mes
-        <input type="number" id="valRec">valor recebido
-        <button>Adicionar receita</button>
-    </div>
-    <div>
-        <table>
-            <h2>VALOR RECEBIDO</h2>
+    <div id="container">
+        <div class="addCamp">
+            <p>Receita:</p>
+            <input type="text" id="descricao-receita" placeholder="ex: salário">
+
+            <p>Mês:</p>
+            <select name="month" id="sel-mes-receita">
+                <option value="janeiro">Janeiro</option>
+                <option value="fevereiro">Fevereiro</option>
+                <option value="março">Março</option>
+                <option value="abril">Abril</option>
+                <option value="maio">Maio</option>
+                <option value="junho">Junho</option>
+                <option value="julho">Julho</option>
+                <option value="agosto">Agosto</option>
+                <option value="setembro">Setembro</option>
+                <option value="outubro">Outubro</option>
+                <option value="novembro">Novembro</option>
+                <option value="dezembro">Dezembro</option>
+            </select>
+
+            <p>Valor Recebido:</p>
+            <input type="number" id="valor-receita" placeholder="ex: 0,00">
+            <button id="btnAdicionarReceita">Adicionar receita</button>
+        </div>
+        <table id="tabela-receitas">
+            <h2>PLANILHA RECEBIDO</h2>
             <thead>
                 <tr class="cabTable">
-                    <th>RECEITAS</th>
+                    <th style="background-color: green;">RECEITAS</th>
                     <th>JANEIRO</th>
                     <th>FEVEREIRO</th>
                     <th>MARÇO</th>
@@ -35,104 +53,125 @@
                 </tr>
             </thead>            
             <tbody>
-                <tr>
+                <tr id="total-receitas">
                     <td>TOTAL</td>
-                    <td>R$</td>
-                    <td>R$</td>
-                    <td>R$</td>
-                    <td>R$</td>
-                    <td>R$</td>
-                    <td>R$</td>
-                    <td>R$</td>
-                    <td>R$</td>
-                    <td>R$</td>
-                    <td>R$</td>
-                    <td>R$</td>
-                    <td>R$</td>
+                    <td>R$ 0,00</td>
+                    <td>R$ 0,00</td>
+                    <td>R$ 0,00</td>
+                    <td>R$ 0,00</td>
+                    <td>R$ 0,00</td>
+                    <td>R$ 0,00</td>
+                    <td>R$ 0,00</td>
+                    <td>R$ 0,00</td>
+                    <td>R$ 0,00</td>
+                    <td>R$ 0,00</td>
+                    <td>R$ 0,00</td>
+                    <td>R$ 0,00</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="addCamp">
+            <p>Despesas:</p>
+            <input type="text" id="descricao-despesa" placeholder="ex: financiamento">
+
+            <p>Mês:</p>
+            <select name="month" id="sel-mes-despesa">
+                <option value="janeiro">Janeiro</option>
+                <option value="fevereiro">Fevereiro</option>
+                <option value="março">Março</option>
+                <option value="abril">Abril</option>
+                <option value="maio">Maio</option>
+                <option value="junho">Junho</option>
+                <option value="julho">Julho</option>
+                <option value="agosto">Agosto</option>
+                <option value="setembro">Setembro</option>
+                <option value="outubro">Outubro</option>
+                <option value="novembro">Novembro</option>
+                <option value="dezembro">Dezembro</option>
+            </select>
+
+            <p>Valor a Pagar:</p>
+            <input type="number" id="valor-despesa" placeholder="ex: 0,00">
+            <button id="btnAdicionarDespesa">Adicionar Despesa</button>
+        </div>
+        <table id="tabela-despesas">
+            <h2>PLANILHA DESPESAS</h2>
+            <thead>
+                <tr class="cabTable">
+                    <th style="background-color: red;">DESPESAS</th>
+                    <th>JANEIRO</th>
+                    <th>FEVEREIRO</th>
+                    <th>MARÇO</th>
+                    <th>ABRIL</th>
+                    <th>MAIO</th>
+                    <th>JUNHO</th>
+                    <th>JULHO</th>
+                    <th>AGOSTO</th>
+                    <th>SETEMBRO</th>
+                    <th>OUTUBRO</th>
+                    <th>NOVEMBRO</th>
+                    <th>DEZEMBRO</th>
+                </tr>
+            </thead>            
+            <tbody>
+                <tr id="total-despesas">
+                    <td>TOTAL</td>
+                    <td>R$ 0,00</td>
+                    <td>R$ 0,00</td>
+                    <td>R$ 0,00</td>
+                    <td>R$ 0,00</td>
+                    <td>R$ 0,00</td>
+                    <td>R$ 0,00</td>
+                    <td>R$ 0,00</td>
+                    <td>R$ 0,00</td>
+                    <td>R$ 0,00</td>
+                    <td>R$ 0,00</td>
+                    <td>R$ 0,00</td>
+                    <td>R$ 0,00</td>
                 </tr>
             </tbody>
         </table>
         <br>
+        <table id="tabela-resultado">
+            <h2>SALDO RESTANTE</h2>
+            <thead>
+                <tr class="cabTable">
+                    <th style="background-color: blue;">TOTAL</th>
+                    <th>JANEIRO</th>
+                    <th>FEVEREIRO</th>
+                    <th>MARÇO</th>
+                    <th>ABRIL</th>
+                    <th>MAIO</th>
+                    <th>JUNHO</th>
+                    <th>JULHO</th>
+                    <th>AGOSTO</th>
+                    <th>SETEMBRO</th>
+                    <th>OUTUBRO</th>
+                    <th>NOVEMBRO</th>
+                    <th>DEZEMBRO</th>
+                </tr>
+            </thead>            
+            <tbody>
+                <tr id="total-resultado">
+                    <td>TOTAL</td>
+                    <td>R$ 0,00</td>
+                    <td>R$ 0,00</td>
+                    <td>R$ 0,00</td>
+                    <td>R$ 0,00</td> 
+                    <td>R$ 0,00</td>
+                    <td>R$ 0,00</td>
+                    <td>R$ 0,00</td>
+                    <td>R$ 0,00</td>
+                    <td>R$ 0,00</td>
+                    <td>R$ 0,00</td>
+                    <td>R$ 0,00</td>
+                    <td>R$ 0,00</td>
+                </tr>
+            </tbody>
+        </table>
         <div class="addCamp">
-            <input type="text">Despesas
-            <select name="month" id="sel-month"></select>mes
-            <input type="number" id="valRec">valor a pagar
-            <button>Adicionar depesa</button>
+            <button id="btnCalcularTotal">Calcular Total</button>
         </div>
-        <table>
-            <h2>DESPESAS PARA PAGAR</h2>
-            <thead>
-                <tr class="cabTable">
-                    <th>RECEITAS</  th>
-                    <th>JANEIRO</th>
-                    <th>FEVEREIRO</th>
-                    <th>MARÇO</th>
-                    <th>ABRIL</th>
-                    <th>MAIO</th>
-                    <th>JUNHO</th>
-                    <th>JULHO</th>
-                    <th>AGOSTO</th>
-                    <th>SETEMBRO</th>
-                    <th>OUTUBRO</th>
-                    <th>NOVEMBRO</th>
-                    <th>DEZEMBRO</th>
-                </tr>
-            </thead>            
-            <tbody>
-                <tr>
-                    <td>TOTAL</td>
-                    <td>R$</td>
-                    <td>R$</td>
-                    <td>R$</td>
-                    <td>R$</td>
-                    <td>R$</td>
-                    <td>R$</td>
-                    <td>R$</td>
-                    <td>R$</td>
-                    <td>R$</td>
-                    <td>R$</td>
-                    <td>R$</td>
-                    <td>R$</td>
-                </tr>
-            </tbody>
-        </table>
-        <br>   
-        <table>
-            <thead>
-                <tr class="cabTable">
-                    <th>TOTAL</th>
-                    <th>JANEIRO</th>
-                    <th>FEVEREIRO</th>
-                    <th>MARÇO</th>
-                    <th>ABRIL</th>
-                    <th>MAIO</th>
-                    <th>JUNHO</th>
-                    <th>JULHO</th>
-                    <th>AGOSTO</th>
-                    <th>SETEMBRO</th>
-                    <th>OUTUBRO</th>
-                    <th>NOVEMBRO</th>
-                    <th>DEZEMBRO</th>
-                </tr>
-            </thead>            
-            <tbody>
-                <tr>
-                    <td>TOTAL</td>
-                    <td>R$</td>
-                    <td>R$</td>
-                    <td>R$</td>
-                    <td>R$</td>
-                    <td>R$</td>
-                    <td>R$</td>
-                    <td>R$</td>
-                    <td>R$</td>
-                    <td>R$</td>
-                    <td>R$</td>
-                    <td>R$</td>
-                    <td>R$</td>
-                </tr>
-            </tbody>
-        </table>
     </div>
 
     <script src="js/script.js"></script>

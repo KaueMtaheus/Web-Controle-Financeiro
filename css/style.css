@@ -6,18 +6,23 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #a1a1a1;
+    background-color: #212121;
 }
 
 
 h1 {
     text-align: center;
     padding: 10px;
-    background-color: white;
+    background-color: black;
+    color: white;
+}
+
+#container{
+    padding: 30px;
 }
 
 .addCamp {
-    margin-top: 20px;
+    margin-top: 15px;
     margin-bottom: 10px;
     display: flex;
     justify-content: center;
@@ -25,16 +30,78 @@ h1 {
 }
 
 
+p {
+    color: #fff;
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+input {
+    margin-right: 20px;
+    width: 200px;
+    height: 20px;
+    border: none;
+}
+
+button {
+    margin-left: 5px;
+    padding: 5px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+
+#btnRec:hover {
+    background-color: #074e07;
+}
+
+
+#btnDivi {
+    background-color: red;
+}
+#btnDivi:hover {
+    background-color: rgb(139, 29, 29);
+}
+
+
+
+#btnCal {
+    background-color: blue;
+    width: 300px;
+}
+#btnCal:hover {
+    background-color: #181877;
+}
+
+
+
+select {
+    margin-right: 20px;
+    border: none;
+    width: 150px;
+    height: 20px;
+}
+
+
 h2 {
+    margin-top: 10px;
     text-align: center;
-    font-size: 18px;
+    font-size: 12px;
+    background-color: black;
+    color: #fff;
+    padding: 10px;
 }
 
 table {
     padding: 10px;
     margin: auto;
     width: 100%;
+    border-collapse: collapse; 
 }
+
 
 
 .cabTable {
@@ -46,9 +113,13 @@ table {
 th {
     width: 100px;
     padding: 5px;
+    text-align: center;
+    border: 1px solid white;
 }
 
 td {
+    text-align: center;
     background-color: white;
     width: 100px;
+    border: 2px solid black;
 }
