@@ -41,6 +41,27 @@ function adicionarLinha(tabelaId, descricao, mes, valor) {
     }
 }
 
+
+document.getElementById('btnDeletarReceita').addEventListener('click', () => {
+    deletarUltimaLinha('tabela-receitas', 'total-receitas');
+});
+
+document.getElementById('btnDeletarDespesa').addEventListener('click', () => {
+    deletarUltimaLinha('tabela-despesas', 'total-despesas');
+});
+
+function deletarUltimaLinha(tabelaId, totalId) {
+    const tabela = document.getElementById(tabelaId);
+    if (tabela.rows.length > 2) { // Verifica se há mais de uma linha (além do cabeçalho e do total)
+        tabela.deleteRow(tabela.rows.length - 2); // Deleta a penúltima linha (última linha de dados)
+        atualizarTotal(tabelaId, totalId);
+        atualizarResultado();
+    }
+}
+
+
+
+
 function atualizarTotal(tabelaId, totalId) {
     const tabela = document.getElementById(tabelaId);
     let total = document.getElementById(totalId);
@@ -69,6 +90,8 @@ function atualizarTotal(tabelaId, totalId) {
     }
 }
 
+
+
 function atualizarResultado() {
     const totalReceitas = document.getElementById('total-receitas');
     const totalDespesas = document.getElementById('total-despesas');
@@ -87,3 +110,5 @@ function moverLinhaTotalParaFinal(tabelaId, totalId) {
     const total = document.getElementById(totalId);
     tabela.appendChild(total); // Move a linha de total para o final
 }
+
+
