@@ -1,5 +1,4 @@
 // Adiciona uma nova receita à tabela e atualiza os totais
-
 document.getElementById('btnAdicionarReceita').addEventListener('click', () => {
     const descricao = document.getElementById('descricao-receita').value;
     const mes = document.getElementById('sel-mes-receita').value;
@@ -8,12 +7,10 @@ document.getElementById('btnAdicionarReceita').addEventListener('click', () => {
         adicionarLinha('tabela-receitas', descricao, mes, valor);
         atualizarTotal('tabela-receitas', 'total-receitas');
         atualizarResultado();
-        moverLinhaTotalParaFinal('tabela-receitas', 'total-receitas');
     }
 });
 
 // Adiciona uma nova despesa à tabela e atualiza os totais
-
 document.getElementById('btnAdicionarDespesa').addEventListener('click', () => {
     const descricao = document.getElementById('descricao-despesa').value;
     const mes = document.getElementById('sel-mes-despesa').value;
@@ -22,13 +19,12 @@ document.getElementById('btnAdicionarDespesa').addEventListener('click', () => {
         adicionarLinha('tabela-despesas', descricao, mes, valor);
         atualizarTotal('tabela-despesas', 'total-despesas');
         atualizarResultado();
-        moverLinhaTotalParaFinal('tabela-despesas', 'total-despesas');
     }
 });
 
 function adicionarLinha(tabelaId, descricao, mes, valor) {
     const tabela = document.getElementById(tabelaId);
-    let linha = tabela.insertRow(-1);
+    let linha = tabela.insertRow(tabela.rows.length - 1);
     linha.insertCell(0).innerText = descricao;
 
     for (let i = 1; i <= 12; i++) {
@@ -40,7 +36,6 @@ function adicionarLinha(tabelaId, descricao, mes, valor) {
         }
     }
 }
-
 
 document.getElementById('btnDeletarReceita').addEventListener('click', () => {
     deletarUltimaLinha('tabela-receitas', 'total-receitas');
@@ -59,9 +54,6 @@ function deletarUltimaLinha(tabelaId, totalId) {
     }
 }
 
-
-
-
 function atualizarTotal(tabelaId, totalId) {
     const tabela = document.getElementById(tabelaId);
     let total = document.getElementById(totalId);
@@ -77,7 +69,7 @@ function atualizarTotal(tabelaId, totalId) {
 
     for (let i = 1; i <= 12; i++) {
         let soma = 0;
-        for (let j = 1; j < tabela.rows.length; j++) {
+        for (let j = 1; j < tabela.rows.length - 1; j++) {
             const valor = parseFloat(tabela.rows[j].cells[i].innerText.replace('R$ ', '').replace(',', '.'));
             soma += !isNaN(valor) ? valor : 0;
         }
@@ -90,8 +82,6 @@ function atualizarTotal(tabelaId, totalId) {
     }
 }
 
-
-
 function atualizarResultado() {
     const totalReceitas = document.getElementById('total-receitas');
     const totalDespesas = document.getElementById('total-despesas');
@@ -102,13 +92,6 @@ function atualizarResultado() {
         const despesas = parseFloat(totalDespesas.cells[i].innerText.replace('R$ ', '').replace(',', '.')) || 0;
         const saldo = receitas - despesas;
         totalResultado.cells[i].innerText = `R$ ${saldo.toFixed(2)}`;
+        totalResultado.cells[i].classList.add('total-resultado-cell');
     }
 }
-
-function moverLinhaTotalParaFinal(tabelaId, totalId) {
-    const tabela = document.getElementById(tabelaId);
-    const total = document.getElementById(totalId);
-    tabela.appendChild(total); // Move a linha de total para o final
-}
-
-
